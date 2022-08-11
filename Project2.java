@@ -269,7 +269,6 @@ public class Project2
                 // and wait for the ticket taker
                 //
                 System.out.println ( "Customer " + this.custID + " in line to see ticket taker" );
-                this.semWait ( semTicketTakerLine );
 
                 // Signal to the ticket taker
                 // to accept movie ticket and wait
