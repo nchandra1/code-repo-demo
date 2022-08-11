@@ -85,13 +85,7 @@ public class Project2
         // is passed in as an argument
         // to this program
         //
-        if ( args.length != 1 )
-        {
-            System.out.println ( "Wrong number of Argument(s)." );
-            System.out.println ( "Usage: java CPU <input file name>" );
-            System.out.println ( "Exiting...." );
-            System.exit ( 0 );
-        }
+      
 
         // Command line OK.
         //
@@ -140,14 +134,7 @@ public class Project2
 			
             // Split on tab
             //
-			while ( sc.hasNextLine() )
-            {
-				line = sc.nextLine ();
-				lineSplit = line.split ( "\t" );
-				datMovieTitles[i] = lineSplit[0];
-				datMovieSeats[i] = Integer.parseInt ( lineSplit [1] );
-				i++;
-			}
+			
             sc.close();
         }
 	
@@ -266,8 +253,7 @@ public class Project2
 
             // Signal to the box office agent 
             //
-            this.semSignal ( semTicketRequest[boxOfficeCounter] );
-
+           
             // Now wait for the box office agent to process
             // ticket purchase request.
             //
@@ -311,10 +297,7 @@ public class Project2
                     // and wait for the food order to be
                     // fulfilled
                     //
-                    this.purchaseFood ( concessionPurchased );
-                    this.semSignal ( semConcessionRequest );
-                    this.semWait ( semConcessionRequestStatus );
-                    System.out.println ( "Customer " + this.custID + " receives " + foodPurchased );
+                    
                 }
                 // Enter theater to see the movie
                 System.out.println ( "Customer " + this.custID + " enters theater to see " + datMovieTitles[movieID] );
@@ -511,8 +494,7 @@ public class Project2
                 // Signal for next customer and 
                 // wait for ticket request
                 //
-                this.semSignal ( semBOACounter[boaID] );
-                this.semSignal ( semTheaterLine );
+   
                 this.semWait ( semTicketRequest[boaID] );
                 System.out.println ( "Box office agent " + this.boaID + " serving customer " 
                                     + datTicketRequestCustomer[boaID] );
@@ -706,7 +688,6 @@ public class Project2
                 // Signal to next customer in line
                 // and wait for request
                 //
-                this.semSignal ( semConcessionStandWorkerLine );
                 this.semWait ( semConcessionRequest );
 
                 // Concession stand processing time
