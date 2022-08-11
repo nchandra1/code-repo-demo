@@ -435,10 +435,6 @@ public class Project2
                 case 1:    
                     foodName = "Soda";
                     break;
-
-                case 2:
-                    foodName = "Popcorn and Soda";
-                    break;  
             }
             return foodName;    
         }
